@@ -197,4 +197,13 @@ body {
     .hero-content h1 {
         font-size: clamp(2.8rem, 12vw, 4rem);
     }
+
+    .nav-tagline {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    }
+
+    .hero-btn {
+        padding: 12px 24px;
+    }
 }
