@@ -40,6 +40,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 24px 60px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-logo {
@@ -90,6 +91,18 @@ body {
     opacity: 1 !important;
 }
 
+/* Scrolled state — index.html only, applied via JS */
+.navbar-scrolled {
+    background-color: var(--white);
+    box-shadow: 0 1px 24px rgba(0, 0, 0, 0.07);
+}
+.navbar-scrolled .nav-logo { color: var(--text); text-shadow: none; }
+.navbar-scrolled .nav-tagline { color: var(--text); opacity: 0.5; }
+.navbar-scrolled .nav-links a { color: var(--text); }
+.navbar-scrolled .nav-cta { border-color: var(--text) !important; color: var(--text) !important; }
+.navbar-scrolled .nav-cta:hover { background-color: var(--text) !important; color: var(--white) !important; }
+.navbar-scrolled .hamburger:not(.open) span { background-color: var(--text); }
+
 /* ── HERO ── */
 .hero {
     position: relative;
@@ -128,6 +141,23 @@ body {
     z-index: 2;
     pointer-events: none;
     opacity: var(--hero-fade, 0);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: var(--white);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+.scroll-hint svg { width: 28px; height: 28px; opacity: 0.65; }
+@keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
 }
 
 .hero-content {
@@ -422,12 +452,14 @@ body {
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
 }
 
 .service-card {
+    flex: 0 0 calc((100% - 80px) / 3);
     display: flex;
     flex-direction: column;
 }
@@ -623,9 +655,8 @@ body {
         font-size: 2rem;
     }
 
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .service-card {
+        flex: 0 0 100%;
     }
 }
 
@@ -907,6 +938,21 @@ body {
     line-height: 2;
 }
 
+.footer-right a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+.footer-right a:hover { opacity: 1; }
+
+.footer-minimal {
+    text-align: center;
+    padding: 48px 60px 32px 60px;
+}
+.footer-minimal .footer-logo { margin-bottom: 6px; }
+.footer-minimal .footer-tagline { margin-bottom: 32px; }
+.footer-minimal .footer-copy { border-top: 1px solid var(--muted); max-width: none; }
+
 .footer-copy {
     font-family: var(--body-font);
     font-size: 0.85rem;
@@ -918,6 +964,99 @@ body {
     padding-top: 24px;
     max-width: 1100px;
     margin: 0 auto;
+}
+
+/* ── FIND US SECTION ── */
+.find-us {
+    background-color: var(--bg);
+    border-top: 1px solid var(--muted);
+    padding: 100px 60px;
+}
+
+.find-us-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.find-us-text {
+    flex: 0 0 320px;
+}
+
+.find-us-tag {
+    font-family: var(--body-font);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.find-us-heading {
+    font-family: var(--display-font);
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 32px;
+}
+
+.find-us-details p {
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text);
+    opacity: 0.7;
+    line-height: 2.2;
+}
+
+.find-us-details a {
+    color: inherit;
+    text-decoration: none;
+}
+.find-us-details a:hover { opacity: 1; }
+
+.find-us-map {
+    flex: 1;
+}
+
+.find-us-map iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .find-us {
+        padding: 80px 24px;
+    }
+    .find-us-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .find-us-text { flex: none; }
+    .find-us-map iframe { height: 280px; }
+}
+
+/* ── WHATSAPP ICON ── */
+.wa-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 8px;
+    fill: currentColor;
+    display: inline-block;
+}
+
+/* ── ACTIVE NAV STATE (inner pages) ── */
+.nav-links-dark .nav-active {
+    opacity: 1 !important;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
 }
 
 /* INNER PAGES MOBILE */
