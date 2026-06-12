@@ -13,7 +13,7 @@
 
     <!-- NAVIGATION -->
     <nav class="navbar">
-        <div class="nav-logo">
+        <div class="nav-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="cursor:pointer;">
             Sri Umiya Timber
             <span class="nav-tagline">Est. 1983 · Banashankari, Bangalore</span>
         </div>
@@ -23,7 +23,18 @@
             <li><a href="#services">Services</a></li>
             <li><a href="https://wa.me/919611467272?text=Hi%2C%20I%20have%20an%20enquiry%20about%20wood%20for%20my%20project" target="_blank" class="nav-cta">Contact Us</a></li>
         </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');">About</a>
+        <a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');">Services</a>
+        <a href="https://wa.me/919611467272?text=Hi%2C%20I%20have%20an%20enquiry%20about%20wood%20for%20my%20project" target="_blank" class="mobile-menu-cta">Contact Us</a>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -64,9 +75,9 @@
             <div class="services-grid">
 
                 <div class="service-card">
-                    <div class="service-img-wrap">
-                        <img src="images/maindoor.jpg" alt="Doors">
-                    </div>
+                    <a href="doors.html" class="service-img-wrap">
+                        <img src="images/maindoor.jpg" alt="Doors" class="img-zoom" style="object-position: center center;">
+                    </a>
                     <div class="service-card-content">
                         <h3>Doors</h3>
                         <p>Wooden, flush and WPVC doors in every style and size.</p>
@@ -75,28 +86,20 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-img-wrap service-img-empty">
-                    </div>
+                    <a href="frames.html" class="service-img-wrap">
+                        <img src="images/frames.jpg" alt="Door and window frames" style="object-position: center center;">
+                    </a>
                     <div class="service-card-content">
-                        <h3>Door Frames</h3>
-                        <p>Installed during construction. Available in teak, honne and red sal in all standard and custom sizes.</p>
-                        <a href="doorframes.html" class="service-link">Learn More →</a>
+                        <h3>Frames</h3>
+                        <p>Door and window frames in teak, honne, red sal and mahogany. Installed during construction.</p>
+                        <a href="frames.html" class="service-link">Learn More →</a>
                     </div>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-img-wrap service-img-empty">
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Window Frames</h3>
-                        <p>Engineered for dimensional stability across Bangalore's humidity cycles. Custom profiles available.</p>
-                        <a href="windowframes.html" class="service-link">Learn More →</a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-img-wrap service-img-empty">
-                    </div>
+                    <a href="windowshutters.html" class="service-img-wrap">
+                        <img src="images/winddow_shutters.jpg" alt="Window shutters" style="object-position: center center;">
+                    </a>
                     <div class="service-card-content">
                         <h3>Window Shutters</h3>
                         <p>Louvered, panelled and solid options in quality hardwood. Custom sizes available.</p>
@@ -105,9 +108,9 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-img-wrap">
-                        <img src="images/teakdoor.jpg" alt="CNC Carving">
-                    </div>
+                    <a href="cnc.html" class="service-img-wrap">
+                        <img src="images/prabhavali.jpg" alt="CNC Carving">
+                    </a>
                     <div class="service-card-content">
                         <h3>CNC 2D & 3D Carving</h3>
                         <p>Any design carved with precision. Doors, panels, prabhavali and more.</p>
@@ -116,8 +119,9 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-img-wrap service-img-empty">
-                    </div>
+                    <a href="flooring.html" class="service-img-wrap">
+                        <img src="images/wood_railings.jpg" alt="Wooden staircase railings" style="object-position: center center;">
+                    </a>
                     <div class="service-card-content">
                         <h3>Flooring & Railings</h3>
                         <p>Warm timber flooring and elegant wooden railings that add character to any space.</p>
@@ -128,5 +132,74 @@
             </div>
         </div>
     </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stats-intro">
+                <h2 class="stats-intro-heading">Crafted for Precision.<br>Built for Trust.</h2>
+                <p class="stats-intro-body">Four decades of timber expertise, three generations of craftsmanship, and one discipline: building joinery that holds up for generations.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <p class="stat-number">40+</p>
+                    <p class="stat-label">Years in<br>Business</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">3</p>
+                    <p class="stat-label">Generations of<br>Craftsmen</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">2,400</p>
+                    <p class="stat-label">Sq ft<br>Workshop</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">1,800+</p>
+                    <p class="stat-label">Cft Monthly<br>Production</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="page-cta" style="background-image: linear-gradient(rgba(20,15,10,0.82), rgba(20,15,10,0.82)), url('images/teak_logs.jpg'); background-size: cover; background-position: center;">
+        <h2>Ready to start your project?</h2>
+        <p>From a single door to a full home fit-out, tell us what you need and we will get back to you within 24 hours.</p>
+        <a href="https://wa.me/919611467272?text=Hi%2C%20I%20have%20an%20enquiry%20about%20wood%20for%20my%20project" target="_blank" class="door-btn door-btn-light">Talk to Us on WhatsApp</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="footer-logo">Sri Umiya Timber</p>
+                <p class="footer-tagline">Est. 1983 · Banashankari, Bangalore.</p>
+            </div>
+            <div class="footer-right">
+                <p>+91 96114 67272</p>
+                <p>sriumiyatimber23@gmail.com</p>
+                <p>@sri_umiya_timber</p>
+                <p>#2432, 80 Feet Road, 3rd Block, BSK 6th Stage, Bangalore – 560062</p>
+                <p>Mon–Sat, 9AM–7PM</p>
+            </div>
+        </div>
+        <p class="footer-copy">© 2026 Sri Umiya Timber. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        const hero = document.querySelector('.hero');
+        window.addEventListener('scroll', () => {
+            const progress = Math.min(window.scrollY / (hero.offsetHeight * 0.55), 1);
+            hero.style.setProperty('--hero-fade', progress);
+        }, { passive: true });
+    </script>
+
 </body>
 </html>

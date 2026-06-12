@@ -35,7 +35,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 200;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -117,11 +117,24 @@ body {
     z-index: 1;
 }
 
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 220px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    z-index: 2;
+    pointer-events: none;
+    opacity: var(--hero-fade, 0);
+}
+
 .hero-content {
     position: absolute;
     bottom: 15%;
     left: 60px;
-    z-index: 2;
+    z-index: 3;
     max-width: 600px;
 }
 
@@ -174,6 +187,93 @@ body {
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
+/* ── HAMBURGER MENU ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar-light .hamburger span,
+.hamburger-dark span {
+    background-color: var(--text);
+}
+
+.hamburger.open span {
+    background-color: var(--white);
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text);
+    z-index: 150;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.mobile-menu.open {
+    display: flex;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    font-family: var(--display-font);
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    opacity: 0.6;
+}
+
+.mobile-menu-cta {
+    border: 1px solid rgba(250, 248, 244, 0.5) !important;
+    padding: 14px 40px !important;
+    font-size: 0.85rem !important;
+    font-family: var(--body-font) !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    margin-top: 20px;
+}
+
 /* ── MOBILE ── */
 @media (max-width: 768px) {
     .navbar {
@@ -188,6 +288,10 @@ body {
         display: none;
     }
 
+    .hamburger {
+        display: flex;
+    }
+
     .hero-content {
         left: 24px;
         right: 24px;
@@ -199,8 +303,8 @@ body {
     }
 
     .nav-tagline {
-    font-size: 0.55rem;
-    letter-spacing: 0.1em;
+        font-size: 0.55rem;
+        letter-spacing: 0.1em;
     }
 
     .hero-btn {
@@ -210,7 +314,7 @@ body {
 
 /* ── STORY SECTION ── */
 .story {
-    padding: 120px 60px;
+    padding: 100px 60px;
     background-color: var(--bg);
 }
 
@@ -264,7 +368,7 @@ body {
     font-weight: 300;
     line-height: 1.8;
     color: var(--text);
-    opacity: 0.8;
+    opacity: 0.7;
     margin-bottom: 20px;
 }
 
@@ -290,7 +394,7 @@ body {
 
 /* ── SERVICES SECTION ── */
 .services {
-    padding: 140px 60px 120px 60px;
+    padding: 80px 60px 100px 60px;
     background-color: var(--bg);
 }
 
@@ -347,6 +451,13 @@ body {
     transform: scale(1.03);
 }
 
+.service-img-wrap img.img-zoom {
+    transform: scale(1.15);
+}
+.service-img-wrap img.img-zoom:hover {
+    transform: scale(1.18);
+}
+
 .service-card-content h3 {
     font-family: var(--display-font);
     font-size: 1.4rem;
@@ -383,10 +494,133 @@ body {
     opacity: 0.7;
 }
 
+/* ── STATS SECTION ── */
+.stats {
+    padding: 100px 60px;
+    background-color: var(--text);
+}
+
+.stats-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.stats-intro {
+    flex: 0 0 320px;
+}
+
+.stats-intro-tag {
+    font-family: var(--body-font);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+}
+
+.stats-intro-heading {
+    font-family: var(--display-font);
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.stats-intro-body {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--white);
+    opacity: 0.7;
+    line-height: 1.8;
+}
+
+.stats-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 60px;
+}
+
+.stat-item {
+    padding-top: 20px;
+    border-top: 1px solid rgba(250, 248, 244, 0.15);
+}
+
+.stat-number {
+    font-family: var(--display-font);
+    font-size: clamp(2.8rem, 4vw, 4rem);
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.stat-label {
+    font-family: var(--body-font);
+    font-size: 0.78rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    opacity: 0.5;
+    line-height: 1.6;
+}
+
+/* STORY MOBILE */
+@media (max-width: 768px) {
+    .story {
+        padding: 80px 24px;
+    }
+
+    .story-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .story-image img {
+        height: 400px;
+    }
+}
+
+/* STATS MOBILE */
+@media (max-width: 768px) {
+    .stats {
+        padding: 80px 24px;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .stats-intro {
+        flex: none;
+    }
+
+    .stats-intro-heading {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        width: 100%;
+        gap: 36px 40px;
+    }
+}
+
 /* SERVICES MOBILE */
 @media (max-width: 768px) {
     .services {
         padding: 80px 24px;
+    }
+
+    .services-heading {
+        font-size: 2rem;
     }
 
     .services-grid {
@@ -453,6 +687,48 @@ body {
     line-height: 1.8;
 }
 
+/* Image page hero — reusable across inner pages */
+.page-hero-bg {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.page-hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.page-hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(20, 15, 10, 0.72) 0%,
+        rgba(20, 15, 10, 0.2) 100%
+    );
+    z-index: 1;
+}
+
+.page-hero-bg-content {
+    position: absolute;
+    bottom: 15%;
+    left: 60px;
+    z-index: 2;
+}
+
+.page-hero-bg-content .page-hero-title {
+    color: var(--white);
+}
+
+.page-hero-bg-content .page-hero-sub {
+    color: var(--white);
+    opacity: 0.8;
+}
+
 .door-section {
     padding: 80px 60px;
     border-top: 1px solid var(--muted);
@@ -515,7 +791,7 @@ body {
     font-size: 0.95rem;
     font-weight: 300;
     color: var(--text);
-    opacity: 0.75;
+    opacity: 0.7;
     line-height: 1.8;
     margin-bottom: 16px;
 }
@@ -650,17 +926,23 @@ body {
         padding: 120px 24px 60px 24px;
     }
 
+    .page-hero-bg-content {
+        left: 24px;
+        right: 24px;
+        bottom: 12%;
+    }
+
     .door-section {
         padding: 60px 24px;
     }
 
     .door-section-container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 40px;
     }
 
     .door-section-reverse {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .door-section-images img {
@@ -683,4 +965,315 @@ body {
 .service-img-empty {
     background-color: var(--muted);
     opacity: 0.4;
+}
+
+/* ── FRAMES PAGE ── */
+
+/* Side by side frames layout */
+.frames-split {
+    padding: 80px 60px;
+    border-top: 1px solid var(--muted);
+}
+
+.frames-split-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+}
+
+/* Each frame column */
+.frames-col {
+    flex: 1;
+    padding: 0 40px;
+}
+
+.frames-col:first-child {
+    padding-left: 0;
+}
+
+.frames-col:last-child {
+    padding-right: 0;
+}
+
+/* Vertical divider between columns */
+.frames-divider {
+    width: 1px;
+    background-color: var(--muted);
+    align-self: stretch;
+    flex-shrink: 0;
+}
+
+/* Frame column image */
+.frames-col-img {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.frames-col-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.frames-col-text h2 {
+    font-family: var(--display-font);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.frames-col-text p {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text);
+    opacity: 0.7;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+/* Wood species horizontal list */
+.wood-species-section {
+    padding: 100px 60px;
+    background-color: var(--bg);
+    border-top: 1px solid var(--muted);
+}
+
+.wood-species-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.wood-species-intro {
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text);
+    opacity: 0.7;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-bottom: 60px;
+}
+
+/* Horizontal wood list */
+.wood-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.wood-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--muted);
+}
+
+.wood-list-item:first-child {
+    border-top: 1px solid var(--muted);
+}
+
+.wood-list-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 280px;
+}
+
+.wood-list-number {
+    font-family: var(--body-font);
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+}
+
+.wood-list-left h3 {
+    font-family: var(--display-font);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text);
+}
+
+.wood-list-item p {
+    font-family: var(--body-font);
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--text);
+    opacity: 0.7;
+    line-height: 1.7;
+    flex: 1;
+}
+
+/* Frames mobile */
+@media (max-width: 768px) {
+    .frames-split {
+        padding: 60px 24px;
+    }
+
+    .frames-split-container {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .frames-divider {
+        display: none;
+    }
+
+    .frames-col {
+        padding: 0;
+    }
+
+    .wood-species-section {
+        padding: 80px 24px;
+    }
+
+    .wood-list-item {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .wood-list-left {
+        min-width: unset;
+    }
+}
+
+/* ── CNC PAGE ── */
+
+/* CNC hero with full image background */
+.cnc-hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.cnc-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cnc-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(20, 15, 10, 0.7) 0%,
+        rgba(20, 15, 10, 0.2) 100%
+    );
+    z-index: 1;
+}
+
+.cnc-hero-content {
+    position: absolute;
+    bottom: 15%;
+    left: 60px;
+    z-index: 2;
+}
+
+.cnc-hero-sub {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--white);
+    opacity: 0.8;
+    letter-spacing: 0.05em;
+    margin-top: 12px;
+}
+
+/* What we carve and process sections */
+.cnc-works {
+    padding: 100px 60px;
+    border-top: 1px solid var(--muted);
+}
+
+.cnc-works-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cnc-process {
+    padding: 100px 60px;
+    background-color: var(--text);
+    border-top: 1px solid var(--muted);
+}
+
+.cnc-process-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Override heading colors for dark background */
+.cnc-process .services-tag {
+    color: var(--accent);
+}
+
+.cnc-process .services-heading {
+    color: var(--white);
+}
+
+/* Process steps grid */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.process-step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.process-number {
+    font-family: var(--display-font);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.process-step h3 {
+    font-family: var(--display-font);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--white);
+}
+
+.process-step p {
+    font-family: var(--body-font);
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--white);
+    opacity: 0.6;
+    line-height: 1.8;
+}
+
+/* CNC mobile */
+@media (max-width: 768px) {
+    .cnc-hero-content {
+        left: 24px;
+        right: 24px;
+    }
+
+    .cnc-works {
+        padding: 80px 24px;
+    }
+
+    .cnc-process {
+        padding: 80px 24px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }

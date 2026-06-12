@@ -13,7 +13,7 @@
 
     <!-- NAVIGATION -->
     <nav class="navbar navbar-light">
-        <div class="nav-logo">
+        <div class="nav-logo" onclick="window.location='index.html'" style="cursor:pointer;">
             Sri Umiya Timber
             <span class="nav-tagline">Est. 1983 · Banashankari, Bangalore</span>
         </div>
@@ -23,13 +23,28 @@
             <li><a href="index.html#services">Services</a></li>
             <li><a href="https://wa.me/919611467272?text=Hi%2C%20I%20have%20an%20enquiry%20about%20wood%20for%20my%20project" target="_blank" class="nav-cta nav-cta-dark">Contact Us</a></li>
         </ul>
+        <button class="hamburger hamburger-dark" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="https://wa.me/919611467272?text=Hi%2C%20I%20have%20an%20enquiry%20about%20wood%20for%20my%20project" target="_blank" class="mobile-menu-cta">Contact Us</a>
+    </div>
+
     <!-- PAGE HERO -->
-    <section class="page-hero">
-        <p class="page-hero-tag">Our Services</p>
-        <h1 class="page-hero-title">Doors</h1>
-        <p class="page-hero-sub">From grand teak entrance doors to practical WPVC bathroom doors — every door we make is built to last.</p>
+    <section class="page-hero-bg">
+        <div class="page-hero-bg-overlay"></div>
+        <img src="images/door_bg3jpg.jpg" alt="Timber doors at Sri Umiya Timber" class="page-hero-bg-img">
+        <div class="page-hero-bg-content">
+            <p class="page-hero-tag">Our Services</p>
+            <h1 class="page-hero-title">Doors</h1>
+            <p class="page-hero-sub">From grand teak entrance doors to practical WPVC bathroom doors, every door we make is built to last.</p>
+        </div>
     </section>
 
     <!-- WOODEN DOORS -->
@@ -38,8 +53,8 @@
             <div class="door-section-text">
                 <p class="door-tag">Premium</p>
                 <h2>Wooden Doors</h2>
-                <p>Our wooden doors are crafted from the finest hardwoods — Ivory Coast Teak, Burma Border Teak, Tanzania Teak, and Honne. Each door is made to your exact specifications, whether you want a simple elegant design or an ornate CNC carved statement piece.</p>
-                <p>Every design is possible. Bring us a reference, a sketch, or an idea — our craftsmen will build it.</p>
+                <p>Our wooden doors are crafted from the finest hardwoods: Ivory Coast Teak, Burma Border Teak, Tanzania Teak, and Honne. Each door is made to your exact specifications, whether you want a simple elegant design or an ornate CNC carved statement piece.</p>
+                <p>Every design is possible. Bring us a reference, a sketch, or an idea. Our craftsmen will build it.</p>
                 <div class="wood-types">
                     <span>Ivory Coast Teak</span>
                     <span>Burma Border Teak</span>
@@ -50,7 +65,7 @@
             </div>
             <div class="door-section-images">
                 <img src="images/maindoor.jpg" alt="Wooden teak door">
-                <img src="images/pooja_room_door.jpg" alt="Pooja room door">
+                <img src="images/pooja room door.jpg" alt="Pooja room door">
             </div>
         </div>
     </section>
@@ -61,12 +76,12 @@
             <div class="door-section-text">
                 <p class="door-tag">Signature</p>
                 <h2>CNC Carved Doors</h2>
-                <p>Our CNC carving capability lets us execute any 2D or 3D design with precision. From geometric modern patterns to traditional temple motifs — share a reference and we engineer it.</p>
+                <p>Our CNC carving capability lets us execute any 2D or 3D design with precision. From geometric modern patterns to traditional temple motifs, share a reference and we will engineer it.</p>
                 <p>Popular choices include mandala patterns, floral carvings, and pooja room doors with traditional motifs. Every piece is one of a kind.</p>
                 <a href="https://wa.me/919611467272?text=Hi%2C%20I%20have%20an%20enquiry%20about%20CNC%20carved%20doors" target="_blank" class="door-btn">Enquire Now</a>
             </div>
             <div class="door-section-images">
-                <img src="images/teakdoor.jpg" alt="CNC carved door">
+                <img src="images/cnc_door.jpeg" alt="CNC carved door">
             </div>
         </div>
     </section>
@@ -77,12 +92,12 @@
             <div class="door-section-text">
                 <p class="door-tag">Practical</p>
                 <h2>Flush Doors</h2>
-                <p>Flush doors are the most common choice for bedrooms, living spaces, and balconies. We stock multiple designs and sizes — clean, modern, and built to last.</p>
+                <p>Flush doors are the most common choice for bedrooms, living spaces, and balconies. We stock multiple designs and sizes. Clean, modern, and built to last.</p>
                 <p>Available in standard sizes. Multiple finish options including raw, pre-sanded, and factory polished.</p>
                 <a href="https://wa.me/919611467272?text=Hi%2C%20I%20have%20an%20enquiry%20about%20flush%20doors" target="_blank" class="door-btn">Enquire Now</a>
             </div>
             <div class="door-section-images">
-                <img src="images/flush_door.jpg" alt="Flush door">
+                <img src="images/flushdoor.jpeg" alt="Flush door">
             </div>
         </div>
     </section>
@@ -93,7 +108,7 @@
             <div class="door-section-text">
                 <p class="door-tag">Functional</p>
                 <h2>WPVC Doors</h2>
-                <p>WPVC doors are the smart choice for bathrooms and wet areas. Moisture resistant, termite proof, and low maintenance — they hold up where wood cannot.</p>
+                <p>WPVC doors are the smart choice for bathrooms and wet areas. Moisture resistant, termite proof, and low maintenance. They hold up where wood cannot.</p>
                 <p>Available in standard sizes. Multiple colour and finish options.</p>
                 <a href="https://wa.me/919611467272?text=Hi%2C%20I%20have%20an%20enquiry%20about%20WPVC%20doors" target="_blank" class="door-btn">Enquire Now</a>
             </div>
@@ -120,12 +135,23 @@
             <div class="footer-right">
                 <p>+91 96114 67272</p>
                 <p>sriumiyatimber23@gmail.com</p>
-                <p>#2432, 80 Feet Road, BSK 6th Stage, Bangalore</p>
+                <p>@sri_umiya_timber</p>
+                <p>#2432, 80 Feet Road, 3rd Block, BSK 6th Stage, Bangalore – 560062</p>
                 <p>Mon–Sat, 9AM–7PM</p>
             </div>
         </div>
         <p class="footer-copy">© 2026 Sri Umiya Timber. All rights reserved.</p>
     </footer>
+
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
 
 </body>
 </html>
